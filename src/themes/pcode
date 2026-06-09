@@ -1,0 +1,9 @@
+dict <id, theme>
+
+get theme()
+set theme()
+
+get current theme()
+set current theme id()
+
+theme struct

@@ -1,0 +1,15 @@
+include scene
+include res
+set log level
+init window
+set target fps
+set bright and dark themes
+init audio device
+add scene
+set current scene id
+while true
+    begin drawing
+    call current scene
+    end drawing
+clear all res
+exit with code

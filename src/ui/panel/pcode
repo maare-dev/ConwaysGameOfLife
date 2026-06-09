@@ -1,0 +1,17 @@
+class panel
+constructor()
+    set rectangle
+    set border color
+    set bg color
+    set header text
+    set text
+    set active
+    set close button
+draw()
+    if active
+        draw rect
+        draw border
+        draw header text
+        draw text
+        if close button active
+            draw close button

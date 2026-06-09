@@ -1,0 +1,16 @@
+dict <id, scene>
+
+get current scene()
+
+add scene()
+
+get current scene id()
+set current scene id()
+
+get scenes()
+set scenes()
+
+clear scenes()
+
+scene class
+    draw frame()

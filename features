@@ -1,0 +1,6 @@
+features:
+    space => pause
+    lmb => make new live cell
+    e => clear board
+    r => clear and fill by random
+    t => toggle theme

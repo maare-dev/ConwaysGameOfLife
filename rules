@@ -1,0 +1,4 @@
+die1 - if has less than 2 neigbours => die
+stable - if has 2 or 3 neigbours => stay live
+die2 - if has more than 3 neigbours => die
+born - if hfs only 3 neigbours => born as new

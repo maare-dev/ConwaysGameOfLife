@@ -1,0 +1,18 @@
+dict <id, texture>
+dict <id, sound>
+
+get texture()
+set texture()
+
+get all textures()
+set all textures()
+
+get sound()
+set sound()
+
+get all sounds()
+set all sounds()
+
+unload all textures()
+unload all sounds()
+unload all res()

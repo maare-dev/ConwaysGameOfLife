@@ -1,0 +1,24 @@
+include scene
+include theme
+include panel
+include logic
+
+extends scene
+
+is running = true
+constructor()
+    create pause panel
+    settings pause panel
+    set map size
+    random map
+draw frame()
+    if space pressed then toggle is running
+    check for hot keys
+    start drawing
+        if is running then count step
+        get map
+        for each cell in map
+            draw cell
+        draw grid
+        if not is running then draw pause panel
+    end drawing

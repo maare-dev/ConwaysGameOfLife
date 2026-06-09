@@ -1,0 +1,17 @@
+theme
+    white
+        dead cell color --- white
+        live cell color --- black
+        grid color --- light gray
+        app bg color --- light gray
+        ui lines color --- dark gray
+        headet text color --- black
+        text color --- gray
+    black
+        dead cell color --- black
+        live cell color --- gray
+        grid color --- dark gray
+        app bg color --- dark gray
+        ui lines color --- white
+        header text color --- white
+        text color --- light gray

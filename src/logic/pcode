@@ -1,0 +1,11 @@
+include random
+
+vector<vector<bool>> map
+vector<vector<bool>> count
+
+set map size()
+count step()
+get map()
+set cell()
+clear map()
+random map()

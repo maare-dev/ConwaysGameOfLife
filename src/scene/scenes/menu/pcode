@@ -1,0 +1,18 @@
+include scene
+include theme
+include button
+include panel
+extends scene
+constructor()
+    create game button
+    create info button
+    create info panel
+    settings for game button
+    settings for info button
+    settings for info panel
+draw frame()
+    start drawing
+        set bg
+        draw game version
+        draw info button
+    end drawing

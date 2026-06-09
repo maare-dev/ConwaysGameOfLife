@@ -1,0 +1,16 @@
+class button
+constructor()
+    set rectangle
+    set text
+    set border color
+    set default color
+    set enter color
+    set click color
+    set void void action
+draw()
+    count current color
+    draw rectangle with current color
+    draw border
+    draw text
+is clicked()
+is entered()
