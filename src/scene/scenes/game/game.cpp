@@ -52,6 +52,7 @@ void Game::CheckForHotkeys(){
     if (IsKeyPressed(KEY_S)) secPerSim *= 2;
     if (IsKeyPressed(KEY_A) && simsPerCount != 1) --simsPerCount;
     if (IsKeyPressed(KEY_D)) ++simsPerCount;
+    if (IsKeyPressed(KEY_Q)) SetCurrentSceneId(0);
 }
 void Game::DrawFrame(){
     static bool needToShowPanel = true;

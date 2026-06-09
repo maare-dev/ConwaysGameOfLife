@@ -26,7 +26,14 @@ Menu::Menu() :
     infoPanel(
         Rectangle {20, 20, 760, 560},
         "Info",
-        "SPACE - stop/countinue simulation\n",
+        "SPACE - pause/continue simulation\n"
+        "LMB - toggle cell\n"
+        "E - clear map\n"
+        "R - clear and fill by random\n"
+        "T - toggle theme\n"
+        "W/S - faster/slower counting\n"
+        "A/D - less/more simulations per count\n"
+        "Q - quit to menu",
         false,
         closeInfoPanelButton
     )
