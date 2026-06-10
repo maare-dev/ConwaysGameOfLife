@@ -1,0 +1,4 @@
+update()
+    check for ':' then
+        draw command line
+        parse command

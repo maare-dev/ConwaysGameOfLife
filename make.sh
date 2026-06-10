@@ -7,6 +7,7 @@ src=(
     "src/scene/scene.cpp"
     "src/scene/scenes/game/game.cpp"
     "src/scene/scenes/menu/menu.cpp"
+    "src/shell/shell.cpp"
     "src/themes/themes.cpp"
     "src/ui/button/button.cpp"
     "src/ui/panel/panel.cpp"

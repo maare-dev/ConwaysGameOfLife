@@ -3,6 +3,7 @@
 #include <raylib.h>
 #include "../../../themes/themes.hpp"
 #include "../game/game.hpp"
+#include "../../../shell/shell.hpp"
 
 Menu::Menu() :
     gameButton(
@@ -39,7 +40,7 @@ Menu::Menu() :
     )
 {}
 void Menu::DrawFrame(){
-    if (IsKeyPressed(KEY_T)) SetCurrentThemeId(1-GetCurrentThemeId());
+    if (IsKeyPressed(KEY_T) && !IsShellActive()) SetCurrentThemeId(1-GetCurrentThemeId());
     Theme& theme = GetCurrentTheme();
     ClearBackground(theme.appBGColor);
     gameButton.Update();

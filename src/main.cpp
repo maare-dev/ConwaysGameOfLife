@@ -5,6 +5,7 @@
 #include "scene/scenes/menu/menu.hpp"
 #include "themes/themes.hpp"
 #include <memory>
+#include "shell/shell.hpp"
 
 void Init();
 void ExitCorrectly(int code);
@@ -17,7 +18,9 @@ int main(){
     SetCurrentThemeId(1);
     while(!WindowShouldClose()){
         BeginDrawing();
-        GetCurrentScene()->DrawFrame();
+            GetCurrentScene()->DrawFrame();
+            UpdateShell();
+            DrawShell();
         EndDrawing();
     }
 }
@@ -25,6 +28,7 @@ int main(){
 void Init(){
     SetTraceLogLevel(LOG_NONE);
     InitWindow(800, 600, "my life sim");
+    SetExitKey(KEY_NULL);
     SetTargetFPS(120);
     SetTheme(0, Theme{
         WHITE,

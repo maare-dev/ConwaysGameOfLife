@@ -1,6 +1,7 @@
 #include "button.hpp"
 #include <raylib.h>
 #include "../../themes/themes.hpp"
+#include "../../shell/shell.hpp"
 
 Button::Button(
     Rectangle rec,
@@ -27,6 +28,7 @@ bool Button::IsEntered(){
     return CheckCollisionPointRec(GetMousePosition(), rec);
 }
 bool Button::IsClicked(){
+    if (IsShellActive()) return false;
     return IsEntered() && IsMouseButtonReleased(MOUSE_BUTTON_LEFT);
 }
 void Button::Update(){
@@ -43,15 +45,9 @@ void Button::Draw(){
     Color clickColor = ct.deadCellColor;
 
     Color currentColor = defaultColor;
+    if (IsEntered()) currentColor = enterColor;
+    if (IsClicked()) currentColor = clickColor;
 
-    if (IsEntered()){
-        if (IsMouseButtonDown(MOUSE_BUTTON_LEFT)){
-            currentColor  = clickColor;
-        }
-        else {
-            currentColor = enterColor;
-        }
-    }
     DrawRectangleRec(rec, currentColor);
     DrawRectangleLinesEx(rec, 2, borderColor);
 

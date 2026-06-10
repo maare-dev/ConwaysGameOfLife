@@ -6,6 +6,7 @@
 #include "../../../logic/logic.hpp"
 #include <vector>
 #include "../../../themes/themes.hpp"
+#include "../../../shell/shell.hpp"
 
 Game::Game() :
     closePausePanelButton(
@@ -38,6 +39,7 @@ void Game::ClosePausePanel(){
     SetCell(pos.x, pos.y, !GetCell(pos.x, pos.y));
 }
 void Game::CheckForHotkeys(){
+    if (IsShellActive()) return;
     if (IsKeyPressed(KEY_SPACE)) isRunning = !isRunning;
     if (IsKeyPressed(KEY_E)) ClearMap();
     if (IsKeyPressed(KEY_R)) RandomMap();
