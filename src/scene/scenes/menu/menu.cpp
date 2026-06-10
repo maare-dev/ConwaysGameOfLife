@@ -1,8 +1,6 @@
 #include "menu.hpp"
-#include <memory>
 #include <raylib.h>
 #include "../../../themes/themes.hpp"
-#include "../game/game.hpp"
 #include "../../../shell/shell.hpp"
 
 Menu::Menu() :

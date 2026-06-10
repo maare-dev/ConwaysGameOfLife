@@ -23,7 +23,7 @@ flags=(
 libs=(
     "-lraylib"
 )
-oname='life_0.0.1'
+oname='life_0.0.2'
 
 g++ "${flags[@]}" -o "$oname" "${src[@]}" "${libs[@]}" || exit 1
 
