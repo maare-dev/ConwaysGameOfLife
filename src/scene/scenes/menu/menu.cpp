@@ -58,7 +58,6 @@ void Menu::DrawFrame(){
     infoPanel.Draw();
 }
 void Menu::StartGame(){
-    AddScene(1, std::make_shared<Game>());
     SetCurrentSceneId(1);
 }
 void Menu::ShowInfoPanel(){

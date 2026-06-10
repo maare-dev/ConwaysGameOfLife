@@ -3,6 +3,7 @@
 #include "res/res.hpp"
 #include "scene/scene.hpp"
 #include "scene/scenes/menu/menu.hpp"
+#include "scene/scenes/game/game.hpp"
 #include "themes/themes.hpp"
 #include <memory>
 #include "shell/shell.hpp"
@@ -12,10 +13,13 @@ void ExitCorrectly(int code);
 
 int main(){
     Init();
-    std::shared_ptr<Scene> menuScn = std::make_shared<Menu>();
-    AddScene(0, menuScn);
+
+    AddScene(0, std::make_shared<Menu>());
+    AddScene(1, std::make_shared<Game>());
     SetCurrentSceneId(0);
+
     SetCurrentThemeId(1);
+
     while(!WindowShouldClose()){
         BeginDrawing();
             GetCurrentScene()->DrawFrame();
@@ -27,7 +31,7 @@ int main(){
 
 void Init(){
     SetTraceLogLevel(LOG_NONE);
-    InitWindow(800, 600, "my life sim");
+    InitWindow(800, 600, "Conway's Game of Life");
     SetExitKey(KEY_NULL);
     SetTargetFPS(120);
     SetTheme(0, Theme{
