@@ -11,6 +11,7 @@ src=(
     "src/themes/themes.cpp"
     "src/ui/button/button.cpp"
     "src/ui/panel/panel.cpp"
+    "src/utils/utils.cpp"
 )
 flags=(
     "-std=c++20"

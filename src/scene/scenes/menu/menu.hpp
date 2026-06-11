@@ -12,7 +12,9 @@ private:
     void StartGame();
     void ShowInfoPanel();
     void CloseInfoPanel();
+    void ExecuteMenuCommand(std::vector<std::string>);
 public:
     Menu();
+    ~Menu();
     void DrawFrame() override;
 };

@@ -36,7 +36,12 @@ Menu::Menu() :
         false,
         closeInfoPanelButton
     )
-{}
+{
+    RegisterCommand("menu", [this](std::vector<std::string> args){ExecuteMenuCommand(args);});
+}
+Menu::~Menu(){
+    UnregisterCommand("menu");
+}
 void Menu::DrawFrame(){
     if (IsKeyPressed(KEY_T) && !IsShellActive()) SetCurrentThemeId(1-GetCurrentThemeId());
     Theme& theme = GetCurrentTheme();
@@ -63,4 +68,17 @@ void Menu::ShowInfoPanel(){
 }
 void Menu::CloseInfoPanel(){
     infoPanel.SetActive(false);
+}
+void Menu::ExecuteMenuCommand(std::vector<std::string> args){
+    if (args.size() == 1){
+        if (args[0] == "start_game"){
+            StartGame();
+        }
+        else if (args[0] == "show_info_panel"){
+            ShowInfoPanel();
+        }
+        else if (args[0] == "close_info_panel"){
+            CloseInfoPanel();
+        }
+    }
 }

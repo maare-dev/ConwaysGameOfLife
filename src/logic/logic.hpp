@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 
+void RegisterLogicCommands();
 void SetMapSize(int x, int y);
 void CountStep();
 const std::vector<std::vector<bool>>& GetMap();

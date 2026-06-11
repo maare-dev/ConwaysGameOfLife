@@ -4,9 +4,11 @@
 #include <curses.h>
 #include <raylib.h>
 #include "../../../logic/logic.hpp"
+#include <string>
 #include <vector>
 #include "../../../themes/themes.hpp"
 #include "../../../shell/shell.hpp"
+#include "../../../utils/utils.hpp"
 
 Game::Game() :
     closePausePanelButton(
@@ -30,6 +32,7 @@ Game::Game() :
     simsPerCount = 1;
     SetMapSize(80, 60);
     RandomMap();
+    RegisterCommand("game", [this](std::vector<std::string> args){ExecuteGameCommand(args);});
 }
 void Game::ClosePausePanel(){
     pausePanel.SetActive(false);
@@ -52,9 +55,43 @@ void Game::CheckForHotkeys(){
     }
     if (IsKeyPressed(KEY_W)) secPerSim /= 2;
     if (IsKeyPressed(KEY_S)) secPerSim *= 2;
-    if (IsKeyPressed(KEY_A) && simsPerCount != 1) --simsPerCount;
+    if (IsKeyPressed(KEY_A) && simsPerCount > 1) --simsPerCount;
     if (IsKeyPressed(KEY_D)) ++simsPerCount;
     if (IsKeyPressed(KEY_Q)) SetCurrentSceneId(0);
+}
+void Game::ExecuteGameCommand(std::vector<std::string> args){
+    if (args.size() == 1){
+        if (args[0] == "emulate_space") isRunning = !isRunning;
+        if (args[0] == "emulate_e") ClearMap();
+        if (args[0] == "emulate_r") RandomMap();
+        if (args[0] == "emulate_t") SetCurrentThemeId(1-GetCurrentThemeId());
+        if (args[0] == "emulate_w") secPerSim /= 2;
+        if (args[0] == "emulate_s") secPerSim *= 2;
+        if (args[0] == "emulate_a" && simsPerCount > 1) --simsPerCount;
+        if (args[0] == "emulate_d") ++simsPerCount;
+        if (args[0] == "emulate_q") SetCurrentSceneId(0);
+    }
+    if (args.size() == 2){
+        if (args[0] == "is_running"){
+            isRunning = StringToBool(args[1]);
+        }
+        else if (args[0] == "sec_per_sim"){
+            try{
+                int sec = std::stoi(args[1]);
+                if (sec > 0.01){
+                    secPerSim = sec;
+                }
+            }catch(...){}
+        }
+        else if (args[0] == "sims_per_count"){
+            try{
+                int sims = std::stoi(args[1]);
+                if (sims > 0){
+                    simsPerCount = sims;
+                }
+            }catch(...){}
+        }
+    }
 }
 void Game::DrawFrame(){
     static bool needToShowPanel = true;
@@ -97,4 +134,7 @@ void Game::DrawFrame(){
 
     pausePanel.Update();
     pausePanel.Draw();
+}
+Game::~Game(){
+    UnregisterCommand("game");
 }

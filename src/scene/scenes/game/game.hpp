@@ -14,7 +14,9 @@ private:
     int simsPerCount;
     void ClosePausePanel();
     void CheckForHotkeys();
+    void ExecuteGameCommand(std::vector<std::string>);
 public:
     Game();
+    ~Game();
     void DrawFrame() override;
 };

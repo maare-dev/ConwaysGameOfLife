@@ -11,6 +11,8 @@ struct Theme {
     Color textColor;
 };
 
+void RegisterThemesCommands();
+
 Theme& GetTheme(int id);
 void SetTheme(int id, Theme theme);
 

@@ -2,6 +2,8 @@
 #include <algorithm>
 #include <vector>
 #include <random>
+#include "../shell/shell.hpp"
+#include "../utils/utils.hpp"
 
 const int D_M_SIZE = 64;
 std::vector<std::vector<bool>> map(D_M_SIZE, std::vector<bool>(D_M_SIZE, false));
@@ -40,9 +42,38 @@ void ClearVectorVector(std::vector<std::vector<bool>>& vv){
         std::fill(row.begin(), row.end(), false);
     }
 }
+void ExecuteLogicCommand(std::vector<std::string> args){
+    if (args.size() == 1){
+        if (args[0] == "count_step"){
+            CountStep();
+        }
+        else if (args[0] == "clear_map"){
+            ClearMap();
+        }
+        else if (args[0] == "random_map"){
+            RandomMap();
+        }
+    }
+    if (args.size() == 3){
+        if (args[0] == "set_map_size"){
+            try{
+                SetMapSize(std::stoi(args[1]), std::stoi(args[2]));
+            }catch(...){}
+        }
+    }
+    if (args.size() == 4){
+        if (args[0] == "set_cell"){
+            try{
+                SetCell(std::stoi(args[1]), std::stoi(args[2]), StringToBool(args[3]));
+            }catch(...){}
+        }
+    }
+}
 
 
-
+void RegisterLogicCommands(){
+    RegisterCommand("logic", ExecuteLogicCommand);
+}
 void SetMapSize(int x, int y){
     ResizeVectorVector(x, y, map);
     ResizeVectorVector(x, y, count);

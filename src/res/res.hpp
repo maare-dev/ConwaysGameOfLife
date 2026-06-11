@@ -2,6 +2,8 @@
 #include <raylib.h>
 #include <unordered_map>
 
+
+void RegisterResCommands();
 Texture GetTexture(int id);
 void SetTexture(int id, Texture tex);
 

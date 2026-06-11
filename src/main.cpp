@@ -1,5 +1,6 @@
 #include <cstdlib>
 #include <raylib.h>
+#include "logic/logic.hpp"
 #include "res/res.hpp"
 #include "scene/scene.hpp"
 #include "scene/scenes/menu/menu.hpp"
@@ -9,10 +10,12 @@
 #include "shell/shell.hpp"
 
 void Init();
+void RegisterCommands();
 void ExitCorrectly(int code);
 
 int main(){
     Init();
+    RegisterCommands();
 
     AddScene(0, std::make_shared<Menu>());
     AddScene(1, std::make_shared<Game>());
@@ -53,6 +56,13 @@ void Init(){
         LIGHTGRAY
     });
     InitAudioDevice();
+}
+void RegisterCommands(){
+    RegisterLogicCommands();
+    RegisterResCommands();
+    RegisterSceneCommands();
+    RegisterThemesCommands();
+    RegisterShellCommands();
 }
 void ExitCorrectly(int code){
     UnloadAllRes();

@@ -1,10 +1,29 @@
 #include "res.hpp"
 #include <raylib.h>
 #include <unordered_map>
+#include <vector>
+#include <string>
+#include "../shell/shell.hpp"
 
 std::unordered_map<int, Texture> textures;
 std::unordered_map<int, Sound> sounds;
+void ExecuteResCommand(std::vector<std::string> args){
+    if (args.size() == 1){
+        if (args[0] == "unload_all_textures"){
+            UnloadAllTextures();
+        }
+        else if (args[0] == "unload_all_sounds"){
+            UnloadAllSounds();
+        }
+        else if (args[0] == "unload_all_res"){
+            UnloadAllRes();
+        }
+    }
+}
 
+void RegisterResCommands(){
+    RegisterCommand("res", ExecuteResCommand);
+}
 Texture GetTexture(int id){
     return textures[id];
 }

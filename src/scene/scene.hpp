@@ -8,6 +8,8 @@ public:
     virtual void DrawFrame() = 0;
 };
 
+void RegisterSceneCommands();
+
 std::shared_ptr<Scene> GetCurrentScene();
 
 void AddScene(int id, std::shared_ptr<Scene> scn);
