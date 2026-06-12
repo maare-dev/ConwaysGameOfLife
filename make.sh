@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 
 src=(
     "src/main.cpp"
